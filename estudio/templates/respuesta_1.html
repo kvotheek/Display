@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+
+
+<center>
+    <h1 class ="bg-white"> Respuesta  </h1>
+    <header>
+    
+    {% for imagen in imagenes %}
+    
+        <img src="{{imagen.imagen_con_patologia.url}}" alt="{{imagen.titulo}}" width="400" height="500"><br>
+        <a> Sexo del paciente: {{imagen.genero_paciente}} </a> <br>
+        <a> Edad del paciente: {{imagen.edad_paciente_en_años}} </a> <br>
+        <a> Informacion adicional: {{imagen.Informacion_adicional}} </a> <br>
+    
+    
+    {% endfor %}
+    </header>
+
+    <header class="bg-white">
+    <h3> <strong> Respuesta correcta:</strong> </h3> <br>
+    <h2> <italic> Absceso </italic></h2> <br>
+    {% for respuesta in respuestas %}
+        <a> {{respuesta.descripcion_breve}} </a> <br>
+        <a href="{{respuesta.url_info}}" {{respuesta.url_info}} > Pulsa aquí para aprender más sobre abscesos </a> <br>
+    {% endfor %}
+    </header>
+</center>
+
+
+
+{% endblock %}

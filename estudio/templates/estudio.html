@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+
+<center>
+    <h1 class ="bg-white"> Pregunta 1 </h1>
+    <header >
+
+    {% for imagen in imagenes %}
+
+        <img src="{{imagen.imagen_con_patologia.url}}" alt={{imagen.titulo}} width="400" height="500"><br>
+        <a> Sexo del paciente: {{imagen.genero_paciente}} </a> <br>
+        <a> Edad del paciente: {{imagen.edad_paciente_en_años}} </a> <br>
+        <a> Informacion adicional: {{imagen.Informacion_adicional}} </a> <br>
+
+    {% endfor %}
+    </header>
+
+    <a>¿Qué anomalía es observable en esta imagen de resonancia magnética? </a> <br>
+
+    {% for respuesta in respuestas %}  
+        <div class="list-group">
+
+            <a href="{% url 'respuesta_1' %}" class="list-group-item list-group-item-action">{{respuesta.alternativa}} </a>
+
+        </div>
+
+
+    {% endfor %}
+
+</center>
+{% endblock %}
